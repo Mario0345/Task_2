@@ -11,17 +11,23 @@ void main(List<String> arguments) async {
   List<dynamic> products = data["cars"];
   List<int> sum = []; 
   double min = 3000;
+
   for (dynamic element in products) {
     String sto = element["price"];
-    
+    dynamic id = element["id"];
     double sto_new = double.parse(sto.substring(1));
     if(sto_new < min){
       min = sto_new ;
+      print(id);
+      print(min);
+      
+    
     }
     
-    
   }
-  print(min);
+ 
+  
+  
   // print(sum);
   // print(sum.length);
 }
