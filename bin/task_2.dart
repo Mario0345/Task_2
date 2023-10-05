@@ -6,18 +6,22 @@ void main(List<String> arguments) async {
 
   
   List<int> result_filter = [];
-  final response = await client.get("https://dummyjson.com/products");
+  final response = await client.get("https://myfakeapi.com/api/cars/");
   Map<String, dynamic> data =response.data;
-  List<dynamic> products = data["products"];
+  List<dynamic> products = data["cars"];
   List<int> sum = []; 
-
+  double min = 3000;
   for (dynamic element in products) {
-    int sto = element["price"];
-    if(sto < 100){
-      sum.add(sto) ;
+    String sto = element["price"];
+    
+    double sto_new = double.parse(sto.substring(1));
+    if(sto_new < min){
+      min = sto_new ;
     }
     
+    
   }
-  print(sum);
-  print(sum.length);
+  print(min);
+  // print(sum);
+  // print(sum.length);
 }
