@@ -15,8 +15,9 @@ void main(List<String> arguments) async {
   for (dynamic element in products) {
     String sto = element["price"];
     dynamic id = element["id"];
+    bool availability = element["availability"];
     double sto_new = double.parse(sto.substring(1));
-    if(sto_new < min){
+    if(sto_new < min && availability == true){
       min = sto_new ;
       print(id);
       print(min);
